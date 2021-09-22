@@ -78,10 +78,7 @@ secretFiles:
   # my-syper-secret-file: my-awesome-secret
 
 # Environment variables
-env:
-  {}
-  # Example
-  # VARIABLE: VALUE
+env: []
 
 #
 # See configuration of project: https://oxyno-zeta.github.io/s3-proxy/

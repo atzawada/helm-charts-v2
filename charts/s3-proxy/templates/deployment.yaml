@@ -46,16 +46,13 @@ spec:
             - name: internal
               containerPort: 9090
               protocol: TCP
-          {{ if .Values.env -}}
+          {{- with .Values.env }}
           env:
-          {{- range $key, $value := .Values.env }}
-          - name: {{ $key | quote }}
-            value: {{ $value | quote }}
-          {{- end }}
+          {{ toYaml . | nindent 12 }}
           {{- end }}
           livenessProbe:
             {{ if .Values.livenessProbe }}
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
+            {{- toYaml .Values.livenessProbe | nindent 14 }}
             {{- end -}}
             httpGet:
               path: /health
